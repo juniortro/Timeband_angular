@@ -1,0 +1,19 @@
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th><button mat-raised-button [style]="'margin-right: 20px'" (click)="addNewItem()">Adicionar novo item</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of rows">
+        <td class="flex-td">
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+          <a routerLink="/edit">
+            Editar
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

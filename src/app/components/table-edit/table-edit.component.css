@@ -1,0 +1,37 @@
+.title {
+    width: 800px;
+    margin: 20px auto;
+    font-weight: 400;
+}
+
+.title h2 {
+    font-weight: 400;
+}
+.form-container {
+  width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.form-container button {
+  margin: 15px 0;
+}
+
+.weekButtons {
+    margin: 10px 0;
+}
+
+.day {
+    margin: 10px;
+}
+
+.day mat-form-field {
+    margin-right: 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+}

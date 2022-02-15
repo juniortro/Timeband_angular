@@ -82,7 +82,7 @@ export class TableEditComponent implements OnInit {
   createForm(hour: Hour) {
     this.formHours = this.fb.group({
       description: [hour.description],
-      days: this.fb.array([{
+      days: this.fb.group([{
         name: [''],
         timeStart: [''],
         timeFinish: [''],

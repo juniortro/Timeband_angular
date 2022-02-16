@@ -13,36 +13,43 @@ export class TableEditComponent implements OnInit {
       name: 'Domingo',
       checked: false,
       timeStart: '',
+      timeFinish: '',
     },
     {
       name: 'Segunda-feira',
       checked: false,
       timeStart: '',
+      timeFinish: '',
     },
     {
       name: 'Terça-feira',
       checked: false,
       timeStart: '',
+      timeFinish: '',
     },
     {
       name: 'Quarta-feira',
       checked: false,
       timeStart: '',
+      timeFinish: '',
     },
     {
       name: 'Quinta-feira',
       checked: false,
       timeStart: '',
+      timeFinish: '',
     },
     {
       name: 'Sexta-feira',
       checked: false,
       timeStart: '',
+      timeFinish: '',
     },
     {
       name: 'Sábado',
       checked: false,
       timeStart: '',
+      timeFinish: '',
     },
   ];
 
@@ -61,19 +68,18 @@ export class TableEditComponent implements OnInit {
   }
 
   updateTimeStart(event: any, day: string): void {
-    this.formHours.patchValue({
-      days: {
-        name: day,
-        timeStart: event.target.value,
-      },
+    this.days.filter((d) => {
+      if (d.name == day) {
+        d.timeStart = event.target.value;
+      }
     });
   }
 
-  updateTimeFinish(event: any): void {
-    this.formHours.patchValue({
-      days: {
-        timeFinish: event.target.value,
-      },
+  updateTimeFinish(event: any, day: string): void {
+    this.days.filter((d) => {
+      if (d.name == day) {
+        d.timeFinish = event.target.value;
+      }
     });
   }
 
@@ -82,15 +88,19 @@ export class TableEditComponent implements OnInit {
   createForm(hour: Hour) {
     this.formHours = this.fb.group({
       description: [hour.description],
-      days: this.fb.group([{
-        name: [''],
-        timeStart: [''],
-        timeFinish: [''],
-      }]),
+      days: this.fb.group([
+        {
+          name: [''],
+          timeStart: [''],
+          timeFinish: [''],
+        },
+      ]),
     });
   }
 
   onSubmit() {
-    console.log(this.formHours.value);
+    this.formHours.value.days = this.days;
+    console.log(this.formHours.value)
+    this.createForm(new Hour());
   }
 }

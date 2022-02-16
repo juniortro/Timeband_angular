@@ -39,7 +39,7 @@
               type="time"
               placeholder="Horário Final"
               formArrayName="days"
-              (change)="updateTimeFinish($event)"
+              (change)="updateTimeFinish($event, day.name)"
             />
           </mat-form-field>
           <button mat-button></button>

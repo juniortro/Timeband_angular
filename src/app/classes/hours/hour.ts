@@ -1,6 +1,6 @@
 export class Hour {
     description: string = '';
-    day: [{
+    days: [{
         name: string,
         timeStart: string,
         timeFinish: string,

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Hour } from 'src/app/classes/hours/hour';
+import { HourService } from './hour.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-table-edit',
@@ -53,14 +55,20 @@ export class TableEditComponent implements OnInit {
     },
   ];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private hourService: HourService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.createForm(new Hour());
+    this.getData();
+    console.log(this.itens)
   }
 
   toggle(data: any): void {
-    this.days.filter((day) => {
+    this.itens.days.filter((day: any) => {
       if (day.name == data) {
         day.checked = !day.checked;
       }
@@ -68,7 +76,7 @@ export class TableEditComponent implements OnInit {
   }
 
   updateTimeStart(event: any, day: string): void {
-    this.days.filter((d) => {
+    this.itens.days.filter((d: any) => {
       if (d.name == day) {
         d.timeStart = event.target.value;
       }
@@ -76,7 +84,7 @@ export class TableEditComponent implements OnInit {
   }
 
   updateTimeFinish(event: any, day: string): void {
-    this.days.filter((d) => {
+    this.itens.days.filter((d: any) => {
       if (d.name == day) {
         d.timeFinish = event.target.value;
       }
@@ -87,20 +95,57 @@ export class TableEditComponent implements OnInit {
 
   createForm(hour: Hour) {
     this.formHours = this.fb.group({
+      id: this.id,
       description: [hour.description],
-      days: this.fb.group([
-        {
-          name: [''],
-          timeStart: [''],
-          timeFinish: [''],
-        },
-      ]),
+      days: this.fb.group({
+        name: [''],
+        timeStart: [''],
+        timeFinish: [''],
+      }),
     });
   }
 
   onSubmit() {
-    this.formHours.value.days = this.days;
-    console.log(this.formHours.value)
+    this.formHours.value.days = this.itens.days;
+    console.log(JSON.stringify(this.formHours.value));
     this.createForm(new Hour());
+  }
+
+  itens: any = {
+    days: [
+      {
+        checked: false
+      },
+      {
+        checked: false
+      },
+      {
+        checked: false
+      },
+      {
+        checked: false
+      },
+      {
+        checked: false
+      },
+      {
+        checked: false
+      },
+      {
+        checked: false
+      },
+    ]
+  };
+  
+  id: any = this.route.snapshot.params['id'];
+
+  getData() {
+    this.hourService
+      .getData()
+      .subscribe(res => res.filter((i: any) => {
+        if(i.id == this.id){
+          this.itens = i
+        }
+      }));
   }
 }

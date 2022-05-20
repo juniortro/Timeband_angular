@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "description": "Finais de semana",
+    "days": [
+      {
+        "name": "Domingo",
+        "checked": true,
+        "timeStart": "15:28",
+        "timeFinish": "15:35"
+      },
+      {
+        "name": "Segunda-feira",
+        "checked": false,
+        "timeStart": "14:52",
+        "timeFinish": "14:54"
+      },
+      {
+        "name": "Terça-feira",
+        "checked": false,
+        "timeStart": "",
+        "timeFinish": ""
+      },
+      {
+        "name": "Quarta-feira",
+        "checked": false,
+        "timeStart": "",
+        "timeFinish": ""
+      },
+      {
+        "name": "Quinta-feira",
+        "checked": false,
+        "timeStart": "",
+        "timeFinish": ""
+      },
+      {
+        "name": "Sexta-feira",
+        "checked": true,
+        "timeStart": "15:45",
+        "timeFinish": "15:45"
+      },
+      {
+        "name": "Sábado",
+        "checked": true,
+        "timeStart": "11:01",
+        "timeFinish": "22:02"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "description": "Segunda à quinta",
+    "days": [
+      {
+        "name": "Domingo",
+        "checked": false,
+        "timeStart": "15:28",
+        "timeFinish": "15:35"
+      },
+      {
+        "name": "Segunda-feira",
+        "checked": true,
+        "timeStart": "14:52",
+        "timeFinish": "14:54"
+      },
+      {
+        "name": "Terça-feira",
+        "checked": true,
+        "timeStart": "11:01",
+        "timeFinish": "11:01"
+      },
+      {
+        "name": "Quarta-feira",
+        "checked": true,
+        "timeStart": "11:01",
+        "timeFinish": "11:01"
+      },
+      {
+        "name": "Quinta-feira",
+        "checked": true,
+        "timeStart": "11:01",
+        "timeFinish": "11:01"
+      },
+      {
+        "name": "Sexta-feira",
+        "checked": false,
+        "timeStart": "",
+        "timeFinish": ""
+      },
+      {
+        "name": "Sábado",
+        "checked": false,
+        "timeStart": "",
+        "timeFinish": ""
+      }
+    ]
+  }
+]
